@@ -17,6 +17,13 @@ class SearchViewController: UIViewController{
         table.register(ShowTableViewCell.self, forCellReuseIdentifier: ShowTableViewCell.identifier)
         return table
     }()
+    
+    private var searchController: UISearchController = {
+        let controller = UISearchController(searchResultsController: SearchResultsViewController())
+        controller.searchBar.placeholder = "Search for a Movie or a TV show"
+        controller.searchBar.searchBarStyle = .minimal
+        return controller
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +36,11 @@ class SearchViewController: UIViewController{
         tableView.delegate = self
         tableView.dataSource = self
         
-        fetchShows()
+        navigationItem.searchController = searchController
+        navigationController?.navigationBar.tintColor = .white
+        searchController.searchResultsUpdater = self
+        
+        fetchDiscoverShows()
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,7 +48,7 @@ class SearchViewController: UIViewController{
         tableView.frame = view.bounds
     }
     
-    private func fetchShows(){
+    private func fetchDiscoverShows(){
         ShowFeedType.discover.getShows { [weak self] result in
             switch result{
             case .success(let shows): if let self{
@@ -71,5 +82,30 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         cell.configure(with: .get(from: shows[indexPath.row]))
         
         return cell
+    }
+}
+
+extension SearchViewController: UISearchResultsUpdating{
+    func updateSearchResults(for searchController: UISearchController) {
+                
+        guard let query = searchController.searchBar.text?.trimmingCharacters(in: .whitespaces),
+              query.count >= 3,
+              let resultsController = searchController.searchResultsController as? SearchResultsViewController else {
+                  return
+              }
+        
+        ShowFeedType.search(query).getShows { [weak self] result in
+            switch result{
+            case .success(let shows): if let self{
+                    DispatchQueue.main.async {
+                        resultsController.configure(with: shows)
+                    }
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    resultsController.configure(with: error)
+                }
+            }
+        }
     }
 }

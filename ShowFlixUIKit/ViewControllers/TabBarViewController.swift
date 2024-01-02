@@ -18,7 +18,7 @@ class TabBarViewController: UITabBarController {
         let vc3 = UINavigationController(rootViewController: SearchViewController())
         let vc4 = UINavigationController(rootViewController: SecondViewController())
     
-        setViewControllers([vc3, vc1, vc2, vc4], animated: true)
+        setViewControllers([vc1, vc2, vc3, vc4], animated: true)
         
         vc1.tabBarItem.image = UIImage(systemName: "house")
         vc2.tabBarItem.image = UIImage(systemName: "play.circle")
