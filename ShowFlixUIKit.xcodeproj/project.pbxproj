@@ -13,7 +13,11 @@
 		1A1E17E92B43F93E00300E2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A1E17E72B43F93E00300E2D /* LaunchScreen.storyboard */; };
 		1A1E17F12B43FAF800300E2D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F02B43FAF800300E2D /* TabBarViewController.swift */; };
 		1A1E17F32B43FD5500300E2D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F22B43FD5500300E2D /* HomeViewController.swift */; };
-		1A1E17F52B44003900300E2D /* HomeFeedSections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F42B44003900300E2D /* HomeFeedSections.swift */; };
+		1A1E17F52B44003900300E2D /* HomeFeedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F42B44003900300E2D /* HomeFeedSection.swift */; };
+		1A1E17FE2B44043500300E2D /* TmdbApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17FD2B44043500300E2D /* TmdbApiCaller.swift */; };
+		1A1E18002B44044700300E2D /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17FF2B44044700300E2D /* Show.swift */; };
+		1A1E18022B44189700300E2D /* HomeHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E18012B44189700300E2D /* HomeHeaderUIView.swift */; };
+		1A1E18042B4418BE00300E2D /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E18032B4418BE00300E2D /* CollectionViewTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +29,11 @@
 		1A1E17EA2B43F93E00300E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A1E17F02B43FAF800300E2D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1A1E17F22B43FD5500300E2D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		1A1E17F42B44003900300E2D /* HomeFeedSections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedSections.swift; sourceTree = "<group>"; };
+		1A1E17F42B44003900300E2D /* HomeFeedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedSection.swift; sourceTree = "<group>"; };
+		1A1E17FD2B44043500300E2D /* TmdbApiCaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbApiCaller.swift; sourceTree = "<group>"; };
+		1A1E17FF2B44044700300E2D /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		1A1E18012B44189700300E2D /* HomeHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderUIView.swift; sourceTree = "<group>"; };
+		1A1E18032B4418BE00300E2D /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +92,7 @@
 		1A1E17F72B44039F00300E2D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1A1E17FF2B44044700300E2D /* Show.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -91,6 +100,8 @@
 		1A1E17F82B4403A700300E2D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				1A1E18012B44189700300E2D /* HomeHeaderUIView.swift */,
+				1A1E18032B4418BE00300E2D /* CollectionViewTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -105,7 +116,8 @@
 		1A1E17FA2B4403C400300E2D /* Others */ = {
 			isa = PBXGroup;
 			children = (
-				1A1E17F42B44003900300E2D /* HomeFeedSections.swift */,
+				1A1E17FD2B44043500300E2D /* TmdbApiCaller.swift */,
+				1A1E17F42B44003900300E2D /* HomeFeedSection.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -180,9 +192,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A1E17FE2B44043500300E2D /* TmdbApiCaller.swift in Sources */,
 				1A1E17F32B43FD5500300E2D /* HomeViewController.swift in Sources */,
 				1A1E17F12B43FAF800300E2D /* TabBarViewController.swift in Sources */,
-				1A1E17F52B44003900300E2D /* HomeFeedSections.swift in Sources */,
+				1A1E17F52B44003900300E2D /* HomeFeedSection.swift in Sources */,
+				1A1E18022B44189700300E2D /* HomeHeaderUIView.swift in Sources */,
+				1A1E18042B4418BE00300E2D /* CollectionViewTableViewCell.swift in Sources */,
+				1A1E18002B44044700300E2D /* Show.swift in Sources */,
 				1A1E17DD2B43F93C00300E2D /* AppDelegate.swift in Sources */,
 				1A1E17DF2B43F93C00300E2D /* SceneDelegate.swift in Sources */,
 			);

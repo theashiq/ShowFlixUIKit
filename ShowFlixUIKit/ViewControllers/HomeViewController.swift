@@ -10,7 +10,8 @@ import UIKit
 class HomeViewController: UIViewController{
     static let title: String = "Home"
     
-    private let sections = HomeFeedSections.allCases
+    private let sections = HomeFeedSection.allCases
+    private var allSectionShows: [HomeFeedSection: [Show]] = [:]
     
     private var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -69,6 +70,24 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: CollectionViewTableViewCell.identifier, for: indexPath) as? CollectionViewTableViewCell else{
             return UITableViewCell()
         }
+        
+        var sectionShows = allSectionShows[sections[indexPath.section]]
+        
+        if sectionShows == nil{
+            sections[indexPath.section].getShows { [weak self] result in
+                switch result{
+                case .success(let shows): if let self{
+                        DispatchQueue.main.async {
+                            self.allSectionShows[self.sections[indexPath.section]] = shows
+                            sectionShows = shows
+                        }
+                    }
+                case .failure(let error): print(error.localizedDescription)
+                }
+            }
+        }
+//        cell.configure(sectionShows)
+        
         return cell
     }
     
@@ -89,125 +108,5 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         header.textLabel?.font.withSize(18)
         header.textLabel?.textColor = .label
-    }
-}
-class HomeHeaderUIView: UIView{
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        prepareHeaderView()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private let headerImage: UIImageView = {
-        let imageView = UIImageView(image: UIImage(resource: .homeFeedHeader))
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
-    private let playButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Play", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.layer.borderColor = UIColor.label.cgColor
-        button.layer.borderWidth = 1
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private let downloadButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Download", for: .normal)
-        button.setTitleColor(.label, for: .normal)
-        button.layer.borderColor = UIColor.label.cgColor
-        button.layer.borderWidth = 1
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
-    
-    private var gradientLayer: CAGradientLayer = {
-       let gradient = CAGradientLayer()
-        gradient.colors = [
-            UIColor.clear.cgColor,
-            UIColor.clear.cgColor,
-            UIColor.systemBackground.cgColor
-        ]
-        return gradient
-    }()
-    
-    private func prepareHeaderView(){
-        headerImage.frame = bounds
-        gradientLayer.frame = bounds
-        addSubview(headerImage)
-        layer.addSublayer(gradientLayer)
-        
-        addSubview(playButton)
-        addSubview(downloadButton)
-        
-        applyConstraints()
-    }
-    
-    private func applyConstraints(){
-        let playButtonConstraints = [
-            playButton.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 200),
-            playButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
-            playButton.widthAnchor.constraint(equalToConstant: 100)
-        ]
-        NSLayoutConstraint.activate(playButtonConstraints)
-        
-        let downloadButtonConstraints = [
-            downloadButton.trailingAnchor.constraint(lessThanOrEqualTo: trailingAnchor, constant: -200),
-            downloadButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -50),
-            downloadButton.widthAnchor.constraint(equalToConstant: 100)
-        ]
-        
-        NSLayoutConstraint.activate(downloadButtonConstraints)
-    }
-}
-
-class CollectionViewTableViewCell: UITableViewCell{
-    static let identifier = "CollectionViewTableViewCell"
-    
-    
-    private let collectionView: UICollectionView = {
-        let layout: UICollectionViewFlowLayout = .init()
-        layout.scrollDirection = .horizontal
-        layout.itemSize = .init(width: 140, height: 200)
-        
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        
-        return collection
-    }()
-    
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        contentView.backgroundColor = .systemTeal
-        contentView.addSubview(collectionView)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    }
-    
-    override func layoutSubviews() {
-        collectionView.frame = contentView.bounds
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource{
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
-        cell.backgroundColor = .red
-        return cell
     }
 }
