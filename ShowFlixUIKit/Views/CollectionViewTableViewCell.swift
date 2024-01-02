@@ -23,15 +23,25 @@ class CollectionViewTableViewCell: UITableViewCell{
         return collection
     }()
     
+    
+    private let errorLabel: UILabel = {
+        var label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .label
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .systemTeal
         contentView.addSubview(collectionView)
+        contentView.addSubview(errorLabel)
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
     override func layoutSubviews() {
+        errorLabel.frame = contentView.bounds
         collectionView.frame = contentView.bounds
     }
     
@@ -42,6 +52,14 @@ class CollectionViewTableViewCell: UITableViewCell{
     public func configure(with shows: [Show]) {
         self.shows = shows
         DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+            self?.errorLabel.text = ""
+        }
+    }
+    public func configure(with error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.errorLabel.text = error.localizedDescription
+            self?.shows = []
             self?.collectionView.reloadData()
         }
     }
@@ -57,11 +75,7 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShowCollectionViewCell.identifier, for: indexPath) as? ShowCollectionViewCell else {
             return UICollectionViewCell()
         }
-            
-        guard let posterPath = shows[indexPath.row].poster_path else {
-            return UICollectionViewCell()
-        }
-        cell.configure(with: posterPath)
+        cell.configure(with: .get(from: shows[indexPath.row]))
         
         return cell
     }

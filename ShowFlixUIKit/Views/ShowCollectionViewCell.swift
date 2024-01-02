@@ -15,6 +15,7 @@ class ShowCollectionViewCell: UICollectionViewCell {
     private let posterImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
@@ -33,12 +34,12 @@ class ShowCollectionViewCell: UICollectionViewCell {
     }
     
     
-    public func configure(with posterUrl: String) {
-        guard let url = URL(string: "\(Constants.tmdbPosterBaseURL)/\(posterUrl)") else {
+    public func configure(with viewModel: ShowViewModel) {
+        guard let posterUrl = viewModel.posterUrl else {
             return
         }
         
-        posterImageView.sd_setImage(with: url, completed: nil)
+        posterImageView.sd_setImage(with: posterUrl, completed: nil)
     }
     
 }
