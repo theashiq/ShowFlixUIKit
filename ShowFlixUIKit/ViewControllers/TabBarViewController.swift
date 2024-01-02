@@ -15,7 +15,7 @@ class TabBarViewController: UITabBarController {
         
         let vc1 = UINavigationController(rootViewController: HomeViewController())
         let vc2 = UINavigationController(rootViewController: UpcomingViewController())
-        let vc3 = UINavigationController(rootViewController: SecondViewController())
+        let vc3 = UINavigationController(rootViewController: SearchViewController())
         let vc4 = UINavigationController(rootViewController: SecondViewController())
     
         setViewControllers([vc1, vc2, vc3, vc4], animated: true)
@@ -27,7 +27,7 @@ class TabBarViewController: UITabBarController {
         
         vc1.title = HomeViewController.title
         vc2.title = UpcomingViewController.title
-        vc3.title = SecondViewController.title
+        vc3.title = SearchViewController.title
         vc4.title = SecondViewController.title
         
         tabBar.tintColor = .label

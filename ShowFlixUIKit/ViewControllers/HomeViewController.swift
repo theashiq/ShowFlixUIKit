@@ -10,8 +10,8 @@ import UIKit
 class HomeViewController: UIViewController{
     static let title: String = "Home"
     
-    private let sections = HomeFeedSection.allCases
-    private var allSectionShows: [HomeFeedSection: [Show]] = [:]
+    private let sections: [ShowFeedType] = [.trendingMovies, .popular, .trendingTV, .upcomingMovies, .topRated]
+    private var allSectionShows: [ShowFeedType: [Show]] = [:]
     
     private var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -75,20 +75,20 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             cell.configure(with: sectionShows)
         }
         else{
-//            sections[indexPath.section].getShows { [weak self] result in
-//                switch result{
-//                case .success(let shows): if let self{
-//                        DispatchQueue.main.async {
-//                            self.allSectionShows[self.sections[indexPath.section]] = shows
-//                            cell.configure(with: shows)
-//                        }
-//                    }
-//                case .failure(let error): 
-//                    DispatchQueue.main.async {
-//                        cell.configure(with: error)
-//                    }
-//                }
-//            }
+            sections[indexPath.section].getShows { [weak self] result in
+                switch result{
+                case .success(let shows): if let self{
+                        DispatchQueue.main.async {
+                            self.allSectionShows[self.sections[indexPath.section]] = shows
+                            cell.configure(with: shows)
+                        }
+                    }
+                case .failure(let error): 
+                    DispatchQueue.main.async {
+                        cell.configure(with: error)
+                    }
+                }
+            }
         }
         
         return cell

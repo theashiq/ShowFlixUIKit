@@ -13,7 +13,7 @@
 		1A1E17E92B43F93E00300E2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A1E17E72B43F93E00300E2D /* LaunchScreen.storyboard */; };
 		1A1E17F12B43FAF800300E2D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F02B43FAF800300E2D /* TabBarViewController.swift */; };
 		1A1E17F32B43FD5500300E2D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F22B43FD5500300E2D /* HomeViewController.swift */; };
-		1A1E17F52B44003900300E2D /* HomeFeedSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F42B44003900300E2D /* HomeFeedSection.swift */; };
+		1A1E17F52B44003900300E2D /* ShowFeedType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F42B44003900300E2D /* ShowFeedType.swift */; };
 		1A1E17FE2B44043500300E2D /* TmdbApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17FD2B44043500300E2D /* TmdbApiCaller.swift */; };
 		1A1E18002B44044700300E2D /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17FF2B44044700300E2D /* Show.swift */; };
 		1A1E18022B44189700300E2D /* HomeHeaderUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E18012B44189700300E2D /* HomeHeaderUIView.swift */; };
@@ -23,6 +23,9 @@
 		1A1E180B2B441CD800300E2D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1A1E180A2B441CD800300E2D /* SDWebImageMapKit */; };
 		1A1E180D2B44334700300E2D /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E180C2B44334700300E2D /* UpcomingViewController.swift */; };
 		1A1E180F2B4438BB00300E2D /* ShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E180E2B4438BB00300E2D /* ShowViewModel.swift */; };
+		1AB3526E2B448DB7009A9A95 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3526D2B448DB7009A9A95 /* ShowTableViewCell.swift */; };
+		1AB352702B448E82009A9A95 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3526F2B448E82009A9A95 /* SearchViewController.swift */; };
+		1AB352722B449701009A9A95 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB352712B449701009A9A95 /* SearchResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +37,7 @@
 		1A1E17EA2B43F93E00300E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1A1E17F02B43FAF800300E2D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		1A1E17F22B43FD5500300E2D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		1A1E17F42B44003900300E2D /* HomeFeedSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFeedSection.swift; sourceTree = "<group>"; };
+		1A1E17F42B44003900300E2D /* ShowFeedType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowFeedType.swift; sourceTree = "<group>"; };
 		1A1E17FD2B44043500300E2D /* TmdbApiCaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TmdbApiCaller.swift; sourceTree = "<group>"; };
 		1A1E17FF2B44044700300E2D /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		1A1E18012B44189700300E2D /* HomeHeaderUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderUIView.swift; sourceTree = "<group>"; };
@@ -42,6 +45,9 @@
 		1A1E18052B441C3A00300E2D /* ShowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A1E180C2B44334700300E2D /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		1A1E180E2B4438BB00300E2D /* ShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModel.swift; sourceTree = "<group>"; };
+		1AB3526D2B448DB7009A9A95 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
+		1AB3526F2B448E82009A9A95 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1AB352712B449701009A9A95 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +102,8 @@
 				1A1E17F02B43FAF800300E2D /* TabBarViewController.swift */,
 				1A1E17F22B43FD5500300E2D /* HomeViewController.swift */,
 				1A1E180C2B44334700300E2D /* UpcomingViewController.swift */,
+				1AB3526F2B448E82009A9A95 /* SearchViewController.swift */,
+				1AB352712B449701009A9A95 /* SearchResultsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -114,6 +122,7 @@
 				1A1E18012B44189700300E2D /* HomeHeaderUIView.swift */,
 				1A1E18032B4418BE00300E2D /* CollectionViewTableViewCell.swift */,
 				1A1E18052B441C3A00300E2D /* ShowCollectionViewCell.swift */,
+				1AB3526D2B448DB7009A9A95 /* ShowTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,7 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				1A1E17FD2B44043500300E2D /* TmdbApiCaller.swift */,
-				1A1E17F42B44003900300E2D /* HomeFeedSection.swift */,
+				1A1E17F42B44003900300E2D /* ShowFeedType.swift */,
 			);
 			path = Others;
 			sourceTree = "<group>";
@@ -216,9 +225,12 @@
 				1A1E17F32B43FD5500300E2D /* HomeViewController.swift in Sources */,
 				1A1E17F12B43FAF800300E2D /* TabBarViewController.swift in Sources */,
 				1A1E180F2B4438BB00300E2D /* ShowViewModel.swift in Sources */,
-				1A1E17F52B44003900300E2D /* HomeFeedSection.swift in Sources */,
+				1AB352722B449701009A9A95 /* SearchResultsViewController.swift in Sources */,
+				1AB3526E2B448DB7009A9A95 /* ShowTableViewCell.swift in Sources */,
+				1A1E17F52B44003900300E2D /* ShowFeedType.swift in Sources */,
 				1A1E18022B44189700300E2D /* HomeHeaderUIView.swift in Sources */,
 				1A1E18042B4418BE00300E2D /* CollectionViewTableViewCell.swift in Sources */,
+				1AB352702B448E82009A9A95 /* SearchViewController.swift in Sources */,
 				1A1E18002B44044700300E2D /* Show.swift in Sources */,
 				1A1E17DD2B43F93C00300E2D /* AppDelegate.swift in Sources */,
 				1A1E17DF2B43F93C00300E2D /* SceneDelegate.swift in Sources */,
