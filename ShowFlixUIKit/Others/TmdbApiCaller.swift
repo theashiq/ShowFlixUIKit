@@ -11,6 +11,8 @@ import Foundation
 struct Constants {
     static let tmdbApiKey = "697d439ac993538da4e3e60b54e762cd"
     static let tmdbBaseURL = "https://api.themoviedb.org"
+    static let tmdbPosterBaseURL = "https://image.tmdb.org/t/p/w500"
+
 }
 
 enum APIError: Error, LocalizedError {

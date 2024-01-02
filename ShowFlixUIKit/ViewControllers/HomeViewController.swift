@@ -71,22 +71,22 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         
-        var sectionShows = allSectionShows[sections[indexPath.section]]
-        
-        if sectionShows == nil{
+        if let sectionShows = allSectionShows[sections[indexPath.section]]{
+            cell.configure(with: sectionShows)
+        }
+        else{
             sections[indexPath.section].getShows { [weak self] result in
                 switch result{
                 case .success(let shows): if let self{
                         DispatchQueue.main.async {
                             self.allSectionShows[self.sections[indexPath.section]] = shows
-                            sectionShows = shows
+                            cell.configure(with: shows)
                         }
                     }
                 case .failure(let error): print(error.localizedDescription)
                 }
             }
         }
-//        cell.configure(sectionShows)
         
         return cell
     }
