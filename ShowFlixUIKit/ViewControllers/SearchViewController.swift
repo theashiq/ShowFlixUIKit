@@ -1,14 +1,14 @@
 //
-//  UpcomingViewController.swift
+//  SearchViewController.swift
 //  ShowFlixUIKit
 //
-//  Created by mac 2019 on 1/2/24.
+//  Created by mac 2019 on 1/3/24.
 //
 
 import UIKit
 
-class UpcomingViewController: UIViewController{
-    static let title: String = "Upcoming"
+class SearchViewController: UIViewController{
+    static let title: String = "Search"
     
     private var shows: [Show] = []
     
@@ -21,7 +21,7 @@ class UpcomingViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        title = UpcomingViewController.title
+        title = SearchViewController.title
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationItem.largeTitleDisplayMode = .always
         
@@ -38,7 +38,7 @@ class UpcomingViewController: UIViewController{
     }
     
     private func fetchShows(){
-        ShowFeedType.upcomingMovies.getShows { [weak self] result in
+        ShowFeedType.discover.getShows { [weak self] result in
             switch result{
             case .success(let shows): if let self{
                     DispatchQueue.main.async {
@@ -53,7 +53,7 @@ class UpcomingViewController: UIViewController{
     
 }
 
-extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource{
+extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         140

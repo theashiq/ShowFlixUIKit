@@ -10,8 +10,8 @@ import UIKit
 class HomeViewController: UIViewController{
     static let title: String = "Home"
     
-    private let sections = HomeFeedSection.allCases
-    private var allSectionShows: [HomeFeedSection: [Show]] = [:]
+    private let sections: [ShowFeedType] = [.trendingMovies, .popular, .trendingTV, .upcomingMovies, .topRated]
+    private var allSectionShows: [ShowFeedType: [Show]] = [:]
     
     private var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
