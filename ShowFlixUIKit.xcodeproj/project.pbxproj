@@ -23,6 +23,7 @@
 		1A1E180B2B441CD800300E2D /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 1A1E180A2B441CD800300E2D /* SDWebImageMapKit */; };
 		1A1E180D2B44334700300E2D /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E180C2B44334700300E2D /* UpcomingViewController.swift */; };
 		1A1E180F2B4438BB00300E2D /* ShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E180E2B4438BB00300E2D /* ShowViewModel.swift */; };
+		1AB3526E2B448DB7009A9A95 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3526D2B448DB7009A9A95 /* ShowTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		1A1E18052B441C3A00300E2D /* ShowCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCollectionViewCell.swift; sourceTree = "<group>"; };
 		1A1E180C2B44334700300E2D /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
 		1A1E180E2B4438BB00300E2D /* ShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModel.swift; sourceTree = "<group>"; };
+		1AB3526D2B448DB7009A9A95 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				1A1E18012B44189700300E2D /* HomeHeaderUIView.swift */,
 				1A1E18032B4418BE00300E2D /* CollectionViewTableViewCell.swift */,
 				1A1E18052B441C3A00300E2D /* ShowCollectionViewCell.swift */,
+				1AB3526D2B448DB7009A9A95 /* ShowTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -216,6 +219,7 @@
 				1A1E17F32B43FD5500300E2D /* HomeViewController.swift in Sources */,
 				1A1E17F12B43FAF800300E2D /* TabBarViewController.swift in Sources */,
 				1A1E180F2B4438BB00300E2D /* ShowViewModel.swift in Sources */,
+				1AB3526E2B448DB7009A9A95 /* ShowTableViewCell.swift in Sources */,
 				1A1E17F52B44003900300E2D /* HomeFeedSection.swift in Sources */,
 				1A1E18022B44189700300E2D /* HomeHeaderUIView.swift in Sources */,
 				1A1E18042B4418BE00300E2D /* CollectionViewTableViewCell.swift in Sources */,
