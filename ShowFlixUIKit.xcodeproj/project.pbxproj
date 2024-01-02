@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		1A1E17DD2B43F93C00300E2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17DC2B43F93C00300E2D /* AppDelegate.swift */; };
 		1A1E17DF2B43F93C00300E2D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17DE2B43F93C00300E2D /* SceneDelegate.swift */; };
-		1A1E17E12B43F93C00300E2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17E02B43F93C00300E2D /* ViewController.swift */; };
 		1A1E17E62B43F93E00300E2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A1E17E52B43F93E00300E2D /* Assets.xcassets */; };
 		1A1E17E92B43F93E00300E2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A1E17E72B43F93E00300E2D /* LaunchScreen.storyboard */; };
 		1A1E17F12B43FAF800300E2D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A1E17F02B43FAF800300E2D /* TabBarViewController.swift */; };
@@ -21,7 +20,6 @@
 		1A1E17D92B43F93C00300E2D /* ShowFlixUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShowFlixUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A1E17DC2B43F93C00300E2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1A1E17DE2B43F93C00300E2D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1A1E17E02B43F93C00300E2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1A1E17E52B43F93E00300E2D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1A1E17E82B43F93E00300E2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1A1E17EA2B43F93E00300E2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,17 +58,56 @@
 		1A1E17DB2B43F93C00300E2D /* ShowFlixUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				1A1E17FA2B4403C400300E2D /* Others */,
+				1A1E17F92B4403AC00300E2D /* ViewModels */,
+				1A1E17F82B4403A700300E2D /* Views */,
+				1A1E17F72B44039F00300E2D /* Models */,
+				1A1E17F62B44035F00300E2D /* ViewControllers */,
 				1A1E17DC2B43F93C00300E2D /* AppDelegate.swift */,
 				1A1E17DE2B43F93C00300E2D /* SceneDelegate.swift */,
-				1A1E17E02B43F93C00300E2D /* ViewController.swift */,
-				1A1E17F02B43FAF800300E2D /* TabBarViewController.swift */,
-				1A1E17F22B43FD5500300E2D /* HomeViewController.swift */,
 				1A1E17E52B43F93E00300E2D /* Assets.xcassets */,
 				1A1E17E72B43F93E00300E2D /* LaunchScreen.storyboard */,
 				1A1E17EA2B43F93E00300E2D /* Info.plist */,
-				1A1E17F42B44003900300E2D /* HomeFeedSections.swift */,
 			);
 			path = ShowFlixUIKit;
+			sourceTree = "<group>";
+		};
+		1A1E17F62B44035F00300E2D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1A1E17F02B43FAF800300E2D /* TabBarViewController.swift */,
+				1A1E17F22B43FD5500300E2D /* HomeViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1A1E17F72B44039F00300E2D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1A1E17F82B4403A700300E2D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1A1E17F92B4403AC00300E2D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		1A1E17FA2B4403C400300E2D /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				1A1E17F42B44003900300E2D /* HomeFeedSections.swift */,
+			);
+			path = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +183,6 @@
 				1A1E17F32B43FD5500300E2D /* HomeViewController.swift in Sources */,
 				1A1E17F12B43FAF800300E2D /* TabBarViewController.swift in Sources */,
 				1A1E17F52B44003900300E2D /* HomeFeedSections.swift in Sources */,
-				1A1E17E12B43F93C00300E2D /* ViewController.swift in Sources */,
 				1A1E17DD2B43F93C00300E2D /* AppDelegate.swift in Sources */,
 				1A1E17DF2B43F93C00300E2D /* SceneDelegate.swift in Sources */,
 			);

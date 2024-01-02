@@ -73,7 +73,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        print(sections[section])
         return sections[section].rawValue
     }
     
