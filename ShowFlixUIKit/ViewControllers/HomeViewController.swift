@@ -47,7 +47,7 @@ class HomeViewController: UIViewController{
             UIBarButtonItem(image: UIImage(systemName: "play.square"), style: .done, target: self, action: nil),
             UIBarButtonItem(image: UIImage(systemName: "person"), style: .done, target: self, action: nil)
         ]
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .label
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -90,7 +90,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
                 }
             }
         }
-        
+        cell.delegate = self
         return cell
     }
     
@@ -111,5 +111,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         
         header.textLabel?.font.withSize(18)
         header.textLabel?.textColor = .label
+    }
+}
+
+
+extension HomeViewController: CollectionViewTableViewCellDelegate{
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, show: Show) {
+        ShowPreviewViewController.preview(for: show, from: self)
     }
 }

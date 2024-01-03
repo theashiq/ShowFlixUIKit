@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrendingShowResponse: Codable {
+struct ShowApiResponse: Codable {
     let results: [Show]
 }
 
@@ -21,4 +21,11 @@ struct Show: Codable {
     let vote_count: Int
     let release_date: String?
     let vote_average: Double
+    
+    var title: String{
+        original_name ?? original_title ?? "Unknown Show Title"
+    }
+    var posterUrl: URL?{
+        URL(string: "\(Constants.tmdbPosterBaseURL)/\(poster_path ?? "")")
+    }
 }

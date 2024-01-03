@@ -8,15 +8,16 @@
 import Foundation
 
 struct ShowViewModel{
-    let title: String
-    let posterUrl: URL?
+    var title: String{
+        show.title
+    }
+    var posterUrl: URL?{
+        show.posterUrl
+    }
+    
     let show: Show
     
     static func get(from show: Show) -> ShowViewModel{
-        return ShowViewModel(
-            title: show.original_name ?? show.original_title ?? "Unknown Show Title",
-            posterUrl: URL(string: "\(Constants.tmdbPosterBaseURL)/\(show.poster_path ?? "")"),
-            show: show
-        )
+        return ShowViewModel(show: show)
     }
 }
