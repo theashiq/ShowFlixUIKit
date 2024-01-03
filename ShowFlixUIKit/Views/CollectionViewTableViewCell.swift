@@ -12,7 +12,6 @@ protocol CollectionViewTableViewCellDelegate: AnyObject {
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, show: Show)
 }
 
-
 class CollectionViewTableViewCell: UITableViewCell{
     static let identifier = "CollectionViewTableViewCell"
     

@@ -83,6 +83,10 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        ShowPreviewViewController.preview(for: shows[indexPath.row], from: self)
+    }
 }
 
 extension SearchViewController: UISearchResultsUpdating{
@@ -94,13 +98,15 @@ extension SearchViewController: UISearchResultsUpdating{
                   return
               }
         
-        ShowFeedType.search(query).getShows { [weak self] result in
+        resultsController.delegate = self
+        
+        ShowFeedType.search(query).getShows { result in
             switch result{
-            case .success(let shows): if let self{
+            case .success(let shows):
                     DispatchQueue.main.async {
                         resultsController.configure(with: shows)
                     }
-                }
+                
             case .failure(let error):
                 DispatchQueue.main.async {
                     resultsController.configure(with: error)
@@ -109,3 +115,10 @@ extension SearchViewController: UISearchResultsUpdating{
         }
     }
 }
+
+extension SearchViewController: SearchResultsCellDelegate{
+    func searchResultsCellDidTapCell(show: Show) {
+        ShowPreviewViewController.preview(for: show, from: self)
+    }
+}
+
