@@ -26,6 +26,7 @@
 		1AB3526E2B448DB7009A9A95 /* ShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3526D2B448DB7009A9A95 /* ShowTableViewCell.swift */; };
 		1AB352702B448E82009A9A95 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB3526F2B448E82009A9A95 /* SearchViewController.swift */; };
 		1AB352722B449701009A9A95 /* SearchResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AB352712B449701009A9A95 /* SearchResultsViewController.swift */; };
+		1ABCFB662B45468E006E849B /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABCFB652B45468E006E849B /* DownloadsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		1AB3526D2B448DB7009A9A95 /* ShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTableViewCell.swift; sourceTree = "<group>"; };
 		1AB3526F2B448E82009A9A95 /* SearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		1AB352712B449701009A9A95 /* SearchResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsViewController.swift; sourceTree = "<group>"; };
+		1ABCFB652B45468E006E849B /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				1A1E180C2B44334700300E2D /* UpcomingViewController.swift */,
 				1AB3526F2B448E82009A9A95 /* SearchViewController.swift */,
 				1AB352712B449701009A9A95 /* SearchResultsViewController.swift */,
+				1ABCFB652B45468E006E849B /* DownloadsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 			files = (
 				1A1E17FE2B44043500300E2D /* TmdbApiCaller.swift in Sources */,
 				1A1E17F32B43FD5500300E2D /* HomeViewController.swift in Sources */,
+				1ABCFB662B45468E006E849B /* DownloadsViewController.swift in Sources */,
 				1A1E17F12B43FAF800300E2D /* TabBarViewController.swift in Sources */,
 				1A1E180F2B4438BB00300E2D /* ShowViewModel.swift in Sources */,
 				1AB352722B449701009A9A95 /* SearchResultsViewController.swift in Sources */,
