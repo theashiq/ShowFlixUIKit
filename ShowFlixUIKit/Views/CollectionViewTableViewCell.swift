@@ -7,10 +7,16 @@
 
 import UIKit
 
+
+protocol CollectionViewTableViewCellDelegate: AnyObject {
+    func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, show: Show)
+}
+
 class CollectionViewTableViewCell: UITableViewCell{
     static let identifier = "CollectionViewTableViewCell"
     
     private var shows: [Show] = []
+    weak var delegate: CollectionViewTableViewCellDelegate?
     
     private let collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = .init()
@@ -78,5 +84,9 @@ extension CollectionViewTableViewCell: UICollectionViewDelegate, UICollectionVie
         cell.configure(with: .get(from: shows[indexPath.row]))
         
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.collectionViewTableViewCellDidTapCell(self, show: shows[indexPath.row])
     }
 }

@@ -6,10 +6,14 @@
 //
 
 import UIKit
+protocol SearchResultsCellDelegate: AnyObject{
+    func searchResultsCellDidTapCell(show: Show)
+}
 
 class SearchResultsViewController: UIViewController {
     
     private var shows: [Show] = []
+    weak var delegate: SearchResultsCellDelegate?
     
     private let collectionView: UICollectionView = {
         let layout: UICollectionViewFlowLayout = .init()
@@ -71,5 +75,10 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         cell.configure(with: .get(from: shows[indexPath.row]))
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        delegate?.searchResultsCellDidTapCell(show: shows[indexPath.row])
     }
 }
