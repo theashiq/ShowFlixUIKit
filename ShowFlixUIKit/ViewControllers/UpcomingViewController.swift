@@ -50,7 +50,11 @@ class UpcomingViewController: UIViewController{
             }
         }
     }
-    
+    private func reloadTableCell(for show: Show){
+        if let index = shows.indices.first(where: { shows[$0] == show}){
+            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        }
+    }
 }
 
 extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource{
@@ -68,8 +72,36 @@ extension UpcomingViewController: UITableViewDelegate, UITableViewDataSource{
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ShowTableViewCell.identifier, for: indexPath) as? ShowTableViewCell else {
             return UITableViewCell()
         }
-        cell.configure(with: .get(from: shows[indexPath.row]))
+        
+        let show = shows[indexPath.row]
+        var showVM: ShowViewModel = .get(from: show)
+        showVM.wishListItem = PersistenceManager.shared.isAddedToWatchList(show: show)
+        cell.configure(with: showVM)
+        cell.delegate = self
         
         return cell
     }
 }
+
+extension UpcomingViewController: ShowTableViewCellDelegate{
+    func watchListButtonDidTap(_ show: Show, cell: ShowTableViewCell) {
+        
+        if PersistenceManager.shared.isAddedToWatchList(show: show){
+            PersistenceManager.shared.removeFromWatchList(show: show){ [weak self] result in
+                switch result{
+                case .success(()): self?.reloadTableCell(for: show)
+                case .failure(let error): print(error.localizedDescription)
+                }
+            }
+        }
+        else{
+            PersistenceManager.shared.addToWatchList(show: show) { [weak self] result in
+                switch result{
+                case .success(()): self?.reloadTableCell(for: show)
+                case .failure(let error): print(error.localizedDescription)
+                }
+            }
+        }
+    }
+}
+
