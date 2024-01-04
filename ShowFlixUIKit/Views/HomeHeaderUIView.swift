@@ -62,6 +62,16 @@ class HomeHeaderUIView: UIView{
         return gradient
     }()
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        gradientLayer.colors = [
+            UIColor.clear.cgColor,
+            UIColor.clear.cgColor,
+            UIColor.systemBackground.cgColor
+        ]
+        playButton.layer.borderColor = UIColor.label.cgColor
+        downloadButton.layer.borderColor = UIColor.label.cgColor
+    }
+    
     private func prepareHeaderView(){
         headerImage.frame = bounds
         gradientLayer.frame = bounds

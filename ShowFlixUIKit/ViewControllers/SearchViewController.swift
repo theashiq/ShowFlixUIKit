@@ -37,7 +37,7 @@ class SearchViewController: UIViewController{
         tableView.dataSource = self
         
         navigationItem.searchController = searchController
-        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.tintColor = .label
         searchController.searchResultsUpdater = self
         
         fetchDiscoverShows()
