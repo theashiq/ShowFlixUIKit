@@ -11,7 +11,7 @@ struct ShowApiResponse: Codable {
     let results: [Show]
 }
 
-struct Show: Codable {
+struct Show: Codable, Equatable {
     let id: Int
     let media_type: String?
     let original_name: String?
@@ -27,5 +27,9 @@ struct Show: Codable {
     }
     var posterUrl: URL?{
         URL(string: "\(Constants.tmdbPosterBaseURL)/\(poster_path ?? "")")
+    }
+    
+    static func == (lhs: Show, rhs: Show) -> Bool{
+        return lhs.id == rhs.id
     }
 }

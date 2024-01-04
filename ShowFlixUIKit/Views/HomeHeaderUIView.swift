@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol HomeHeaderViewDelegate: AnyObject{
+    func play(show: Show)
+    func download(show: Show)
+}
+
 class HomeHeaderUIView: UIView{
     override init(frame: CGRect) {
         super.init(frame: frame)
         prepareHeaderView()
     }
+    
+    weak var delegate: HomeHeaderViewDelegate?
+    private var show: Show!
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -54,6 +62,16 @@ class HomeHeaderUIView: UIView{
         return gradient
     }()
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        gradientLayer.colors = [
+            UIColor.clear.cgColor,
+            UIColor.clear.cgColor,
+            UIColor.systemBackground.cgColor
+        ]
+        playButton.layer.borderColor = UIColor.label.cgColor
+        downloadButton.layer.borderColor = UIColor.label.cgColor
+    }
+    
     private func prepareHeaderView(){
         headerImage.frame = bounds
         gradientLayer.frame = bounds
@@ -63,7 +81,22 @@ class HomeHeaderUIView: UIView{
         addSubview(playButton)
         addSubview(downloadButton)
         
+        playButton.addTarget(self, action: #selector(playPressed), for: .touchUpInside)
+        downloadButton.addTarget(self, action: #selector(downloadPressed), for: .touchUpInside)
+        
         applyConstraints()
+    }
+    
+    
+    @objc func playPressed() {
+        if let show{
+            delegate?.play(show: show)
+        }
+    }
+    @objc func downloadPressed() {
+        if let show{
+            delegate?.download(show: show)
+        }
     }
     
     private func applyConstraints(){
@@ -81,6 +114,15 @@ class HomeHeaderUIView: UIView{
         ]
         
         NSLayoutConstraint.activate(downloadButtonConstraints)
+    }
+    
+    func configure(with viewModel: ShowViewModel){
+        guard let url = viewModel.posterUrl else {return}
+        show = viewModel.show
+        
+        DispatchQueue.main.async{ [weak self] in
+            self?.headerImage.sd_setImage(with: url, completed: nil)
+        }
     }
 }
 

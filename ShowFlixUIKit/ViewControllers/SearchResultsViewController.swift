@@ -72,7 +72,11 @@ extension SearchResultsViewController: UICollectionViewDelegate, UICollectionVie
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ShowCollectionViewCell.identifier, for: indexPath) as? ShowCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.configure(with: .get(from: shows[indexPath.row]))
+        
+        let show = shows[indexPath.row]
+        var showVM: ShowViewModel = .get(from: show)
+        showVM.wishListItem = PersistenceManager.shared.isAddedToWatchList(show: show)
+        cell.configure(with: showVM)
         
         return cell
     }

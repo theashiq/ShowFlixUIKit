@@ -19,6 +19,8 @@ class HomeViewController: UIViewController{
         return table
     }()
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
@@ -27,9 +29,27 @@ class HomeViewController: UIViewController{
         tableView.delegate = self
         tableView.dataSource = self
         tableView.frame = view.bounds
-        tableView.tableHeaderView = HomeHeaderUIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        addTableHeader()
         
         addNavBar()
+    }
+    
+    private func addTableHeader(){
+        
+        ShowFeedType.trendingMovies.getShows { [weak self] result in
+            switch result{
+            case .failure(let error): print(error.localizedDescription)
+            case .success(let shows):
+                if let randomShow = shows.randomElement(), let strongSelf = self{
+                    DispatchQueue.main.async{
+                        let header = HomeHeaderUIView(frame: CGRect(x: 0, y: 0, width: strongSelf.view.bounds.width, height: 450))
+                        header.delegate = strongSelf
+                        header.configure(with: .get(from: randomShow))
+                        strongSelf.tableView.tableHeaderView = header
+                    }
+                }
+            }
+        }
     }
     
     private func addNavBar(){
@@ -118,5 +138,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 extension HomeViewController: CollectionViewTableViewCellDelegate{
     func collectionViewTableViewCellDidTapCell(_ cell: CollectionViewTableViewCell, show: Show) {
         ShowPreviewViewController.preview(for: show, from: self)
+    }
+}
+
+extension HomeViewController: HomeHeaderViewDelegate{
+    func play(show: Show) {
+        ShowPreviewViewController.preview(for: show, from: self)
+    }
+    
+    func download(show: Show) {
+        
     }
 }
